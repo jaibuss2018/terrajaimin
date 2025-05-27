@@ -47,11 +47,11 @@ resource "azurerm_storage_account" "jaiterrastorage2" {
 
 
 
-resource "azurerm_linux_web_service" "appsvc" {
+resource "azurerm_linux_web_app" "appsvc" {
   name                = "linuxappjaimin"
   location            = azurerm_resource_group.rg.location
   resource_group_name = azurerm_resource_group.rg.name
-  app_service_plan_id = azurerm_app_service_plan.svcplan.id
+  service_plan_id = azurerm_app_service_plan.svcplan.id
 
 
   site_config {
@@ -67,3 +67,4 @@ location = azurerm_resource_group.rg.location
 sku_name = "Standard"
 os_type = "linux"
 }
+
