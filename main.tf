@@ -49,7 +49,7 @@ resource "azurerm_service_plan" "svcplan" {
 resource_group_name = azurerm_resource_group.rg.name
 name = "appplan"
 location = azurerm_resource_group.rg.location
-sku_name = "SHARED"
+sku_name = "B1"
 os_type = "Linux"
 }
 
