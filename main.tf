@@ -36,8 +36,8 @@ resource "azurerm_storage_account" "jaiterrastorage1" {
   location = azurerm_resource_group.rg.location
   
 }
-resource "azurerm_storage_account" "jaiterrastorage2" {
-  name = "jaiterrastorage2"
+resource "azurerm_storage_account" "jaiterrastorage3" {
+  name = "jaiterrastorage3"
   account_tier = "Standard"
   account_replication_type = "LRS"
   resource_group_name = azurerm_resource_group.rg.name
