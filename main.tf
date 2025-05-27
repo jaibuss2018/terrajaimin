@@ -44,3 +44,28 @@ resource "azurerm_storage_account" "jaiterrastorage2" {
   location = azurerm_resource_group.rg.location
   
 }
+
+resource "azurerm_app_service_plan" "svcplan" {
+  name                = "newweb-appserviceplan"
+  location            = "eastus"
+  resource_group_name = "<YOUR_RESOURCE_GROUP_NAME>"
+
+  sku {
+    tier = "Standard"
+    size = "S1"
+  }
+}
+
+resource "azurerm_app_service" "appsvc" {
+  name                = "custom-tf-webapp-for-thestudent-<XXXXXX>"
+  location            = "eastus"
+  resource_group_name = "<YOUR_RESOURCE_GROUP_NAME>"
+  app_service_plan_id = azurerm_app_service_plan.svcplan.id
+
+
+  site_config {
+    dotnet_framework_version = "v4.0"
+    scm_type                 = "LocalGit"
+  }
+}
+
