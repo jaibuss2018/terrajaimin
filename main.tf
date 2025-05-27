@@ -46,7 +46,7 @@ resource "azurerm_storage_account" "jaiterrastorage2" {
 }
 
 resource "azurerm_app_service_plan" "svcplan" {
-  name                = "jaiminweb-appserviceplan"
+  name                = "newweb-appserviceplan"
   location            = azurerm_resource_group.rg.location
   resource_group_name = azurerm_resource_group.rg.name
 
@@ -56,7 +56,7 @@ resource "azurerm_app_service_plan" "svcplan" {
   }
 }
 
-resource "azurerm_app_service" "appsvc" {
+resource "azurerm_linux_web_service" "appsvc" {
   name                = "custom-tf-webapp-for-thestudent jaimin"
   location            = azurerm_resource_group.rg.location
   resource_group_name = azurerm_resource_group.rg.name
@@ -68,4 +68,5 @@ resource "azurerm_app_service" "appsvc" {
     scm_type                 = "LocalGit"
   }
 }
+
 
