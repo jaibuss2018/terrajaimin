@@ -45,19 +45,10 @@ resource "azurerm_storage_account" "jaiterrastorage2" {
   
 }
 
-resource "azurerm_app_service_plan" "svcplan" {
-  name                = "newweb-appserviceplan"
-  location            = azurerm_resource_group.rg.location
-  resource_group_name = azurerm_resource_group.rg.name
 
-  sku {
-    tier = "Standard"
-    size = "S1"
-  }
-}
 
 resource "azurerm_linux_web_service" "appsvc" {
-  name                = "custom-tf-webapp-for-thestudent jaimin"
+  name                = "linuxappjaimin"
   location            = azurerm_resource_group.rg.location
   resource_group_name = azurerm_resource_group.rg.name
   app_service_plan_id = azurerm_app_service_plan.svcplan.id
@@ -69,4 +60,10 @@ resource "azurerm_linux_web_service" "appsvc" {
   }
 }
 
-
+resource "azurerm_service_plan" "name" {
+resource_group_name = azurerm_resource_group.rg.name
+name = "appplan"
+location = azurerm_resource_group.rg.location
+sku_name = "Standard"
+os_type = "linux"
+}
