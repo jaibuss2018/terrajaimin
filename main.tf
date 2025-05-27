@@ -59,11 +59,8 @@ resource "azurerm_linux_web_app" "appsvc" {
   location            = azurerm_resource_group.rg.location
   resource_group_name = azurerm_resource_group.rg.name
   service_plan_id = azurerm_service_plan.svcplan.id
-
-
   site_config {
-    dotnet_framework_version = "v4.0"
-    scm_type                 = "LocalGit"
+    http2_enabled = alltrue()
   }
 }
 
