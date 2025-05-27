@@ -45,6 +45,13 @@ resource "azurerm_storage_account" "jaiterrastorage2" {
   
 }
 
+resource "azurerm_service_plan" "svcplan" {
+resource_group_name = azurerm_resource_group.rg.name
+name = "appplan"
+location = azurerm_resource_group.rg.location
+sku_name = "Shared"
+os_type = "Linux"
+}
 
 
 resource "azurerm_linux_web_app" "appsvc" {
@@ -60,11 +67,4 @@ resource "azurerm_linux_web_app" "appsvc" {
   }
 }
 
-resource "azurerm_service_plan" "svcplan" {
-resource_group_name = azurerm_resource_group.rg.name
-name = "appplan"
-location = azurerm_resource_group.rg.location
-sku_name = "Standard"
-os_type = "linux"
-}
 
