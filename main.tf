@@ -47,8 +47,8 @@ resource "azurerm_storage_account" "jaiterrastorage2" {
 
 resource "azurerm_app_service_plan" "svcplan" {
   name                = "newweb-appserviceplan"
-  location            = "eastus"
-  resource_group_name = "<YOUR_RESOURCE_GROUP_NAME>"
+  location            = azurerm_resource_group.rg.location
+  resource_group_name = azurerm_resource_group.rg.name
 
   sku {
     tier = "Standard"
