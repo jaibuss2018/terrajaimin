@@ -28,7 +28,7 @@ resource "azurerm_resource_group" "rg" {
  name = "1-d894c370-playground-sandbox"
  location = "West US" 
  }
-resource "azurerm_storage_account" "storage" {
+resource "azurerm_storage_account" "jaiterrastorage1" {
   name = "jaiterrastorage1"
   account_tier = "Standard"
   account_replication_type = "LRS"
@@ -36,7 +36,7 @@ resource "azurerm_storage_account" "storage" {
   location = azurerm_resource_group.rg.location
   
 }
-resource "azurerm_storage_account" "storage2" {
+resource "azurerm_storage_account" "jaiterrastorage2" {
   name = "jaiterrastorage2"
   account_tier = "Standard"
   account_replication_type = "LRS"
