@@ -60,7 +60,7 @@ resource "azurerm_linux_web_app" "appsvc" {
   resource_group_name = azurerm_resource_group.rg.name
   service_plan_id = azurerm_service_plan.svcplan.id
   site_config {
-    http2_enabled = alltrue()
+    http2_enabled = true
   }
 }
 
