@@ -49,7 +49,7 @@ resource "azurerm_service_plan" "svcplan" {
 resource_group_name = azurerm_resource_group.rg.name
 name = "appplan"
 location = azurerm_resource_group.rg.location
-sku_name = "Shared"
+sku_name = "SHARED"
 os_type = "Linux"
 }
 
@@ -58,7 +58,7 @@ resource "azurerm_linux_web_app" "appsvc" {
   name                = "linuxappjaimin"
   location            = azurerm_resource_group.rg.location
   resource_group_name = azurerm_resource_group.rg.name
-  service_plan_id = azurerm_app_service_plan.svcplan.id
+  service_plan_id = azurerm_service_plan.svcplan.id
 
 
   site_config {
