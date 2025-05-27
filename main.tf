@@ -67,11 +67,13 @@ resource "azurerm_linux_web_app" "appsvc" {
 variable "resource_group_name" {
   type        = string
   description = "Name of the resource group provided by the lab."
+  default = azurerm_resource_group.rg.name
 }
 
 variable "prefix" {
   type        = string
   description = "Prefix to be used for all resources in this lab."
+  default = "jai"
 }
 
 
